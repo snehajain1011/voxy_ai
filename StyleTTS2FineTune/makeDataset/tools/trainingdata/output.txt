@@ -1,0 +1,157 @@
+output_0.wav|When training these multimodal AI models, we have a couple of different options.|1
+output_1.wav|First of all, we can train a model from scratch.|1
+output_2.wav|Second of all, we can also use something called transfer learning.|1
+output_4.wav|So that is what we do when we train from scratch.|1
+output_5.wav|So we just make it ourselves from scratch.|1
+output_6.wav|It's a simple model, so we have full control because we do everything ourselves.|1
+output_7.wav|We can also optimize the model for our specific task.|1
+output_8.wav|It is also pretty small compared to this other option.|1
+output_10.wav|So we can benefit from models that people have actually created already and get better results from that.|1
+output_11.wav|So when we use extra models inside of our architecture, that obviously means we have a larger model size because we have multiple more models inside of our model.|1
+output_12.wav|And it also means that we need to find models that actually fit our task.|1
+output_13.wav|So there might exist models, but they don't really fit our use case.|1
+output_14.wav|I'm sure that there are some models that fit our use case, though.|1
+output_16.wav|But for some use cases, that is not the case.|1
+output_17.wav|So when we use training from scratch, we require more data because we have to train the model with a lot of data to teach it everything from scratch.|1
+output_18.wav|And this also means that we need to give it more training time, and then it also might underperform compared to this other option over here.|1
+output_20.wav|We can also use less data because those models that we do use from other people have been trained on a lot of data before us.|1
+output_21.wav|And then we also can use architectures that are already proven inside of our model to make sure that we get even better results.|1
+output_22.wav|So how would this transfer learning look for us when working with text and video, for example?|1
+output_23.wav|So if we just took the text, for example, and converted it into a tensor and ran that through the model, what we would see is the model trying to understand the raw data and then predict something from that.|1
+output_24.wav|So without a pre-trained model, so when just training it from scratch, there is no difference between these two scenarios.|1
+output_25.wav|So imagine you have a bank with the money and then also a river bank.|1
+output_26.wav|Those two things are two completely different things.|1
+output_27.wav|So you might say a fish swam by a riverbank, and that makes sense, but you can also say a fish swam by a bank with money, and that doesn't make sense at all.|1
+output_28.wav|So a bank, right here, and right here, are two completely different things, but they might be encoded in the same way with a tensor.|1
+output_29.wav|So both is a bank, since a bank is encoded the same way, so a bank just contains four letters, so those four letters will be the same anyways, regardless of whether it's a bank with money or a riverbank.|1
+output_31.wav|If you do use a pre-trained model that has been built for this, the output of the pre-trained model will then reflect what kind of bank it is, so more context is preserved.|1
+output_33.wav|And that is because those pre-trained models that we will use will have been trained on a bunch of data before for specific use cases, so it is obviously good from the start.|1
+output_34.wav|and knows a lot of things without us even having to train the models.|1
+output_35.wav|So that is the specific use case I want you to know for working with text and also using this transfer learning.|1
+output_36.wav|So another example with working with a video, for example, with pre-trained models could be this.|1
+output_37.wav|So imagine you just convert your video into frames and then the frames into tensors that you pass into the model.|1
+output_38.wav|So the model might only see the brightness goes up and down and up and down.|1
+output_40.wav|And these things are features from the video that the model will be able to extract from the video frames.|1
+output_42.wav|It'll actually extract what is happening inside the video and then preserve more context of the video, thereby giving us better accuracy with our model.|1
+output_43.wav|So these two reasons are why we specifically use transfer learning.|1
+output_44.wav|So using these pre-built models instead of just training everything from scratch.|1
+output_46.wav|So how can we do that?|1
+output_47.wav|So a simple architecture could be that we take our video and break it into our frames, and then we can use something called ResNet 3D to just encode the video.|1
+output_48.wav|So what it'll do is ResNet 3D is just a model that has been trained already, which will extract the context of the video.|1
+output_49.wav|So like we see right here, Pershing nodding with the head smiling, for example, that will be stored inside of the tensor that this model will output.|1
+output_50.wav|So it'll preserve more context from the video.|1
+output_51.wav|With the text, we'll run it through a model called birds.|1
+output_52.wav|This is also another pre-trained model that will be able to distinguish between a bank with money and a river bank, for example, because we won't really be able to do that unless we train on a lot of data.|1
+output_53.wav|It might help the model understand the difference between these things.|1
+output_55.wav|So now we have three different data modalities we need to work with.|1
+output_56.wav|We have the output of this ResNet3D model, we have the output of this BERT model, and we also have this raw audio that we need to pass into the model.|1
+output_57.wav|All of these needs to be passed into the model at the same time.|1
+output_58.wav|So how do we actually do that?|1
+output_59.wav|So what we need to do is just combine these and we do this by something called fusion.|1
+output_60.wav|So we fuse all of these data types together and then we pass that fused data into the model at one time.|1
+output_61.wav|So there is a couple of different ways of fusing data together.|1
+output_62.wav|We have something called late fusion, early fusion and then also something called intermediate fusion.|1
+output_63.wav|So it all depends on when you want to combine the data.|1
+output_64.wav|You can combine the data before passing it into the model.|1
+output_65.wav|You can also run it through some models like this and then pass that into a fusion model.|1
+output_66.wav|So there's a couple of different ways of doing that.|1
+output_67.wav|So I'll just walk you through what options we have and why we picked the one we have.|1
+output_68.wav|So what we'll do is something called late fusion.|1
+output_69.wav|So late fusion works like we see right here.|1
+output_71.wav|These are our two modalities, for example.|1
+output_72.wav|This could be video, then also the transcript of the video.|1
+output_73.wav|We'll run each of these into two separate models, two separate pre-trained AI models.|1
+output_74.wav|And then the result of each of these will run into another AI model, which we will train ourself.|1
+output_75.wav|We'll call this model the fusion layer.|1
+output_76.wav|And from this, we can then do some predictions.|1
+output_77.wav|So this fusion layer will then learn the relationship between modality one and modality two, along with predicting what the sentiment and the emotion is.|1
+output_78.wav|The next way of doing it is down here with early fusion.|1
+output_79.wav|So here with early fusion, you have two different modalities.|1
+output_80.wav|So this could be a video, for example, and this could be the transcript of that video.|1
+output_81.wav|We then manually extract the data from that video.|1
+output_82.wav|So we could manually find some way to extract the different colors of the video.|1
+output_83.wav|We could also manually find a way to extract the motion of the video and also do some object detection.|1
+output_84.wav|And then we could store all of these different data from the video inside of a tensor.|1
+output_85.wav|And then we could use that as the input to another model.|1
+output_87.wav|And we then just do the same for the text down here as well.|1
+output_88.wav|So this is called extracting features from the modalities.|1
+output_89.wav|So after extracting these features, we can then take each of these features, run them through another model, which we'll train ourselves.|1
+output_90.wav|And then we'll just concatenate this data inside of another sensor.|1
+output_91.wav|And then we can run that through a model which we'll train ourselves, which will then learn the relation between the different modalities.|1
+output_92.wav|And then that can then make a prediction of what the model should predict.|1
+output_93.wav|So the sentiment or the emotion.|1
+output_94.wav|And then the last option is called intermediate fusion.|1
+output_95.wav|In intermediate fusion, we just do a mix of both.|1
+output_96.wav|So we take both modalities and then we extract the features, so the exact things we want to extract.|1
+output_97.wav|And then we run those things through two separate AI models.|1
+output_98.wav|So this can be a pre-trained model, but it can also be a model you train yourself.|1
+output_99.wav|And then we take that and run it through a fusion layer.|1
+output_100.wav|So we run it through a model and concatenate everything.|1
+output_101.wav|And then we run that through another model, which will then learn the relationship between all of these things and then predict what the emotion and the sentiment.|1
+output_102.wav|So this requires a bit more things because you have to both extract the features, run it through a fusion layer and run independent AI processing for each of these modalities.|1
+output_103.wav|This is like a lot more steps compared to just the late fusion up here where you just use pre-trained models and then that's it.|1
+output_104.wav|So we'll use late fusion because it is simply just the simplest way of going ahead.|1
+output_105.wav|So I would just like to start simple and then if there is a reason to go even deeper and go more advanced, you can always do that.|1
+output_106.wav|And it is super simple because you can just use these pre-trained models from Bird, so Bird and then ResNet, which will just do all the hard work for you with preserving the context from the video and also the text.|1
+output_108.wav|Whereas this ResNet model, for example, has already done that for you because that is what it has been trained to do.|1
+output_109.wav|Also, it is more robust to missing data because feature extraction is automatic.|1
+output_110.wav|So it has been trained on a bunch of data and seen a lot of things, these two models.|1
+output_111.wav|So they will be pretty robust because it has been trained on that much data.|1
+output_112.wav|Whereas down here, you'll need to extract the features yourself.|1
+output_113.wav|So you need to train this model on the features you have extracted.|1
+output_114.wav|So what you basically do is build the understanding that these models already have.|1
+output_115.wav|And that, of course, gives you more control, but it also makes it harder for you if you do not want to do that from scratch.|1
+output_116.wav|And that is not something we are interested in right now.|1
+output_117.wav|So some of the drawbacks, just so you know it, is that we have more parameters inside the model because we both run this model right here, but we also run these two pre-trained models.|1
+output_119.wav|We do not train all the parameters, but we do run inference for both these two machine learning models that has been pre-trained and also the one we're training ourselves.|1
+output_120.wav|So the model will be slower compared to just training everything ourselves with early fusion down here, for example.|1
+output_122.wav|So the text will be processed independently by this model and the video will be processed independently by this model.|1
+output_123.wav|And then only the result of these models will be processed together in this fusion layer and combined.|1
+output_124.wav|So if any data is lost inside any of these models, then we'll never know because it is not processed together from the start.|1
+output_125.wav|It is processed independently and then fused together afterwards.|1
+output_126.wav|So here is an example I can give you.|1
+output_127.wav|It's like watching a movie with a friend and you both watch it separately in different rooms.|1
+output_128.wav|So this is ML Model 1 and ML Model 2.|1
+output_129.wav|You watch the two movies and then later you combine your opinions.|1
+output_130.wav|That is what you do here with the fusion layer.|1
+output_131.wav|So you actually are able to combine your opinions just fine, but you did miss out on the experience of discussing the movie together in real time.|1
+output_132.wav|So that is what you miss out on if you just combine everything from the start.|1
+output_133.wav|This is a pretty powerful approach and it is very simple too, so that is why I will go with it though.|1
+output_134.wav|Going down to early fusion, this is super efficient because you can have full control over it.|1
+output_135.wav|You only have to train your own model and not use these other pre-trained models.|1
+output_136.wav|And then also that makes it faster.|1
+output_137.wav|So one of the drawbacks is that it is more sensitive to missing data.|1
+output_138.wav|So because these models up here have been trained on that much data, they are pretty robust.|1
+output_139.wav|But if you train a model from the ground up, you'll need to train it with as much data probably as up here to make them just as robust.|1
+output_140.wav|So if you just have less good data, then you might not get very good results training everything from the ground up like you do here with early fusion.|1
+output_141.wav|Another thing is that you train the model with defining the data yourself.|1
+output_142.wav|So this feature extraction might extract the RGB values for the video specifically.|1
+output_143.wav|So the model will be trained on expecting that these RPG values will always be there.|1
+output_144.wav|So because it is not as robust as up here,|1
+output_145.wav|If you suddenly have a video where the RGB values are missing, then the model might act up and not give you very good results because it has been trained to expect exactly that from the beginning.|1
+output_146.wav|So if you do not have that, it will not be very robust.|1
+output_147.wav|So it is more sensitive to missing data.|1
+output_148.wav|And now Intermediate Fusion down here, it combines the benefits of both because you get to define which features you would like to look on specifically right here.|1
+output_149.wav|And then also you get to run it through the pre-trained models, which will preserve some of the context.|1
+output_150.wav|but more components also requires tuning because it is a bigger model and it also requires even more computations because you have even more components inside of this model.|1
+output_151.wav|So it is just a way if you wanna really be specific about how you wanna do it, then you can go with intermediate fusion for example.|1
+output_152.wav|I'll just go ahead and go with the late fusion because it is the simplest and probably also the most robust for starters in our use case.|1
+output_154.wav|So this is how we're going to do a late fusion.|1
+output_155.wav|So we're going to take the video and we're going to encode it, which means we're going to turn it into raw data.|1
+output_156.wav|And we're going to do that with the ResNet 3D pre-trained model.|1
+output_157.wav|We're then also going to take the text, so the transfer of the video and run it through the bird pre-trained model.|1
+output_159.wav|We'll then also take the audio and run it through an audio encoder.|1
+output_160.wav|And the output for each of these encoders will then be a tensor of size batch size because we take a couple of samples at a time and not just one sample.|1
+output_162.wav|So the tensor will look like this.|1
+output_163.wav|So the tensor will be the exact same size in the output for both the video, text and audio encoder.|1
+output_164.wav|That means we now have three tensors which we need to combine before we can pass it into our model.|1
+output_165.wav|So what we do is that we concatenate the data.|1
+output_166.wav|So we just create a tensor of batch size, and then we just append the data basically.|1
+output_167.wav|So we can say this one first, this one afterwards, and this one afterwards.|1
+output_168.wav|So we just get 128 times three, so that it will make a tensor of batch size, comma, and then three times 128.|1
+output_169.wav|We can then run that through a fusion layer, which learns the relation between each one of these modalities, so the video, the text, and the audio.|1
+output_170.wav|And then from that fusion layer, we can branch out into two more layers of neurons.|1
+output_171.wav|The first layer is the emotion classifier, and the next one is the sentiment classifier.|1
+output_172.wav|And the reason I have two of these is because we want to separate the sentiment classification from the emotion classification, because it is not the same.|1
+output_174.wav|So these will be separate predictions, and this is what we call task-specific hats, because each of these predicting layers will have a separate task to do.|1
+output_175.wav|So that is how we're going to build up our model.|1

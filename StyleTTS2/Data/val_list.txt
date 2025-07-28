@@ -1,0 +1,16 @@
+output_157.wav|wɪɹ ðˈɛn ˈɑːlsoʊ ɡˌoʊɪŋ tə tˈeɪk ðə tˈɛkst, sˌoʊ ðə tɹˈænsfɜːɹ ʌvðə vˈɪdɪoʊ ænd ɹˈʌn ɪt θɹuː ðə bˈɜːd pɹˈiːtɹˈeɪnd mˈɑːdəl. |1
+output_159.wav|wiːl ðˈɛn ˈɑːlsoʊ tˈeɪk ðɪ ˈɔːdɪˌoʊ ænd ɹˈʌn ɪt θɹuː ɐn ˈɔːdɪˌoʊ ɛnkˈoʊdɚ. |1
+output_160.wav|ænd ðɪ ˈaʊtpʊt fɔːɹ ˈiːtʃ əv ðiːz ɛnkˈoʊdɚz wɪl ðˈɛn biː ɐ tˈɛnsɚɹ ʌv sˈaɪz bˈætʃ sˈaɪz bɪkˈʌz wiː tˈeɪk ɐ kˈʌpəl ʌv sˈæmpəlz æɾə tˈaɪm ænd nˌɑːt dʒˈʌst wˈʌn sˈæmpəl. |1
+output_162.wav|sˌoʊ ðə tˈɛnsɚ wɪl lˈʊk lˈaɪk ðˈɪs. |1
+output_163.wav|sˌoʊ ðə tˈɛnsɚ wɪl biː ðɪ ɛɡzˈækt sˈeɪm sˈaɪz ɪnðɪ ˈaʊtpʊt fɔːɹ bˈoʊθ ðə vˈɪdɪoʊ, tˈɛkst ænd ˈɔːdɪˌoʊ ɛnkˈoʊdɚ. |1
+output_164.wav|ðæt mˈiːnz wiː nˈaʊ hæv θɹˈiː tˈɛnsɚz wˌɪtʃ wiː nˈiːd tə kəmbˈaɪn bɪfˌoːɹ wiː kæn pˈæs ɪt ˌɪntʊ ˌaʊɚ mˈɑːdəl. |1
+output_165.wav|sˌoʊ wˌʌt wiː dˈuː ɪz ðæt wiː kənkˈætənˌeɪt ðə dˈeɪɾə. |1
+output_166.wav|sˌoʊ wiː dʒˈʌst kɹiːˈeɪt ɐ tˈɛnsɚɹ ʌv bˈætʃ sˈaɪz, ænd ðˈɛn wiː dʒˈʌst ɐpˈɛnd ðə dˈeɪɾə bˈeɪsɪkli. |1
+output_167.wav|sˌoʊ wiː kæn sˈeɪ ðˈɪswˌʌn fˈɜːst, ðˈɪswˌʌn ˈæftɚwɚdz, ænd ðˈɪswˌʌn ˈæftɚwɚdz. |1
+output_168.wav|sˌoʊ wiː dʒˈʌst ɡɛt wˈʌnhˈʌndɹəd twˈɛntiˈeɪt tˈaɪmz θɹˈiː, sˌoʊ ðˌɐɾɪt wɪl mˌeɪk ɐ tˈɛnsɚɹ ʌv bˈætʃ sˈaɪz, kˈɑːmə, ænd ðˈɛn θɹˈiː tˈaɪmz wˈʌnhˈʌndɹəd twˈɛntiˈeɪt. |1
+output_169.wav|wiː kæn ðˈɛn ɹˈʌn ðæt θɹuː ɐ fjˈuːʒən lˈeɪɚ, wˌɪtʃ lˈɜːnz ðə ɹɪlˈeɪʃən bɪtwˌiːn ˈiːtʃ wˈʌn ʌv ðiːz moʊdˈælɪɾiz, sˌoʊ ðə vˈɪdɪoʊ, ðə tˈɛkst, ænd ðɪ ˈɔːdɪˌoʊ. |1
+output_170.wav|ænd ðˈɛn fɹʌm ðæt fjˈuːʒən lˈeɪɚ, wiː kæn bɹˈæntʃ ˈaʊt ˌɪntʊ tˈuː mˈoːɹ lˈeɪɚz ʌv nˈʊɹɹɑːnz. |1
+output_171.wav|ðə fˈɜːst lˈeɪɚɹ ɪz ðɪ ɪmˈoʊʃən klˈæsɪfˌaɪɚ, ænd ðə nˈɛkst wˈʌn ɪz ðə sˈɛntɪmənt klˈæsɪfˌaɪɚ. |1
+output_172.wav|ænd ðə ɹˈiːzən aɪ hæv tˈuː ʌv ðiːz ɪz bɪkˈʌz wiː wˈɑːnt tə sˈɛpɚɹˌeɪt ðə sˈɛntɪmənt klˌæsɪfɪkˈeɪʃən fɹʌmðɪ ɪmˈoʊʃən klˌæsɪfɪkˈeɪʃən, bɪkˈʌz ɪt ɪz nˌɑːt ðə sˈeɪm. |1
+output_174.wav|sˌoʊ ðiːz wɪl biː sˈɛpɹət pɹɪdˈɪkʃənz, ænd ðɪs ɪz wˌʌt wiː kˈɔːl tˈæskspəsˈɪfɪk hˈæts, bɪkˈʌz ˈiːtʃ əv ðiːz pɹɪdˈɪktɪŋ lˈeɪɚz wɪl hæv ɐ sˈɛpɹət tˈæsk tə dˈuː. |1
+output_175.wav|sˌoʊ ðæt ɪz hˌaʊ wɪɹ ɡˌoʊɪŋ tə bˈɪld ˌʌp ˌaʊɚ mˈɑːdəl. |1

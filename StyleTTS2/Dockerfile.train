@@ -1,0 +1,27 @@
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    python3-dev \
+    espeak-ng \
+    libsndfile1 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+RUN pip install accelerate
+
+COPY . .
+
+ENV PYTHONPATH=/app
+ENV TORCH_HOME=/app/Models
+
+RUN echo '#!/bin/bash\n\
+accelerate launch --mixed_precision=fp16 --num_processes=1 \
+train_finetune_accelerate.py --config_path ./Configs/config_ft.yml' > entrypoint.sh \
+&& chmod +x entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]

@@ -1,0 +1,704 @@
+1
+00:00:00,031 --> 00:00:03,976
+When training these multimodal AI models, we have a couple of different options.
+
+2
+00:00:04,396 --> 00:00:06,359
+First of all, we can train a model from scratch.
+
+3
+00:00:07,520 --> 00:00:09,943
+Second of all, we can also use something called transfer learning.
+
+4
+00:00:10,403 --> 00:00:22,478
+So when training a model from scratch, we basically just convert all these different data types into tensors, and then we put those tensors straight into some layers, and then we have those layers output some outputs.
+
+5
+00:00:22,458 --> 00:00:24,762
+So that is what we do when we train from scratch.
+
+6
+00:00:24,783 --> 00:00:26,887
+So we just make it ourselves from scratch.
+
+7
+00:00:27,468 --> 00:00:31,977
+It's a simple model, so we have full control because we do everything ourselves.
+
+8
+00:00:31,997 --> 00:00:34,862
+We can also optimize the model for our specific task.
+
+9
+00:00:34,882 --> 00:00:37,868
+It is also pretty small compared to this other option.
+
+10
+00:00:37,848 --> 00:00:54,220
+And then what we can also do is run the data, instead of just putting it straight into some layers that predict something, we can run the data through some pre-built models that will then extract some extra meaning from this data, which we can then run through these layers.
+
+11
+00:00:54,200 --> 00:01:01,538
+So we can benefit from models that people have actually created already and get better results from that.
+
+12
+00:01:01,558 --> 00:01:12,124
+So when we use extra models inside of our architecture, that obviously means we have a larger model size because we have multiple more models inside of our model.
+
+13
+00:01:12,104 --> 00:01:16,790
+And it also means that we need to find models that actually fit our task.
+
+14
+00:01:16,810 --> 00:01:21,095
+So there might exist models, but they don't really fit our use case.
+
+15
+00:01:21,215 --> 00:01:23,458
+I'm sure that there are some models that fit our use case, though.
+
+16
+00:01:23,578 --> 00:01:24,379
+I know that.
+
+17
+00:01:24,399 --> 00:01:28,444
+But for some use cases, that is not the case.
+
+18
+00:01:28,964 --> 00:01:37,875
+So when we use training from scratch, we require more data because we have to train the model with a lot of data to teach it everything from scratch.
+
+19
+00:01:37,855 --> 00:01:44,127
+And this also means that we need to give it more training time, and then it also might underperform compared to this other option over here.
+
+20
+00:01:44,548 --> 00:01:56,590
+So when we're using transfer learning, because we use these extra models in the start to understand the meaning of these things, we get better initial performance because we can benefit from using these existing models other people have trained.
+
+21
+00:01:56,570 --> 00:02:03,803
+We can also use less data because those models that we do use from other people have been trained on a lot of data before us.
+
+22
+00:02:04,344 --> 00:02:10,755
+And then we also can use architectures that are already proven inside of our model to make sure that we get even better results.
+
+23
+00:02:11,436 --> 00:02:16,806
+So how would this transfer learning look for us when working with text and video, for example?
+
+24
+00:02:16,786 --> 00:02:27,300
+So if we just took the text, for example, and converted it into a tensor and ran that through the model, what we would see is the model trying to understand the raw data and then predict something from that.
+
+25
+00:02:27,680 --> 00:02:34,309
+So without a pre-trained model, so when just training it from scratch, there is no difference between these two scenarios.
+
+26
+00:02:34,329 --> 00:02:38,254
+So imagine you have a bank with the money and then also a river bank.
+
+27
+00:02:38,234 --> 00:02:41,097
+Those two things are two completely different things.
+
+28
+00:02:41,117 --> 00:02:50,045
+So you might say a fish swam by a riverbank, and that makes sense, but you can also say a fish swam by a bank with money, and that doesn't make sense at all.
+
+29
+00:02:50,065 --> 00:02:56,871
+So a bank, right here, and right here, are two completely different things, but they might be encoded in the same way with a tensor.
+
+30
+00:02:57,491 --> 00:03:08,241
+So both is a bank, since a bank is encoded the same way, so a bank just contains four letters, so those four letters will be the same anyways, regardless of whether it's a bank with money or a riverbank.
+
+31
+00:03:08,221 --> 00:03:21,742
+So when just taking text and converting it into a tensor and passing that tensor into the model, the model might not know the difference between a riverbank and a bank with money, so it will lose some of the context that is actually stored within the text.
+
+32
+00:03:21,762 --> 00:03:31,798
+If you do use a pre-trained model that has been built for this, the output of the pre-trained model will then reflect what kind of bank it is, so more context is preserved.
+
+33
+00:03:31,778 --> 00:03:47,784
+So what I mean by this is that the model has been trained to distinguish between a bank with money and a river bank, so the output tensor of that pre-built model will then also contain some of that context, so more of the context of the actual text will be preserved within the data that the model outputs.
+
+34
+00:03:47,804 --> 00:03:59,102
+And that is because those pre-trained models that we will use will have been trained on a bunch of data before for specific use cases, so it is obviously good from the start.
+
+35
+00:03:59,082 --> 00:04:02,966
+and knows a lot of things without us even having to train the models.
+
+36
+00:04:02,986 --> 00:04:08,393
+So that is the specific use case I want you to know for working with text and also using this transfer learning.
+
+37
+00:04:08,773 --> 00:04:14,019
+So another example with working with a video, for example, with pre-trained models could be this.
+
+38
+00:04:14,640 --> 00:04:20,186
+So imagine you just convert your video into frames and then the frames into tensors that you pass into the model.
+
+39
+00:04:20,566 --> 00:04:25,512
+So the model might only see the brightness goes up and down and up and down.
+
+40
+00:04:25,492 --> 00:04:41,695
+but the pre-trained model might be trained to identify that a person is nodding with the head while smiling, and it might know this because it can detect emotion, it can detect smiling from facial features, and it can also detect that the person is nodding from a specific sequence of actions.
+
+41
+00:04:41,675 --> 00:04:48,004
+And these things are features from the video that the model will be able to extract from the video frames.
+
+42
+00:04:48,024 --> 00:04:49,927
+So it won't just see the brightness going up and down.
+
+43
+00:04:50,247 --> 00:04:58,719
+It'll actually extract what is happening inside the video and then preserve more context of the video, thereby giving us better accuracy with our model.
+
+44
+00:04:59,460 --> 00:05:03,225
+So these two reasons are why we specifically use transfer learning.
+
+45
+00:05:03,345 --> 00:05:07,531
+So using these pre-built models instead of just training everything from scratch.
+
+46
+00:05:08,292 --> 00:05:08,813
+Great.
+
+47
+00:05:08,793 --> 00:05:10,355
+So how can we do that?
+
+48
+00:05:10,755 --> 00:05:20,727
+So a simple architecture could be that we take our video and break it into our frames, and then we can use something called ResNet 3D to just encode the video.
+
+49
+00:05:20,747 --> 00:05:27,294
+So what it'll do is ResNet 3D is just a model that has been trained already, which will extract the context of the video.
+
+50
+00:05:27,635 --> 00:05:34,262
+So like we see right here, Pershing nodding with the head smiling, for example, that will be stored inside of the tensor that this model will output.
+
+51
+00:05:34,602 --> 00:05:36,825
+So it'll preserve more context from the video.
+
+52
+00:05:36,805 --> 00:05:39,489
+With the text, we'll run it through a model called birds.
+
+53
+00:05:39,889 --> 00:05:50,404
+This is also another pre-trained model that will be able to distinguish between a bank with money and a river bank, for example, because we won't really be able to do that unless we train on a lot of data.
+
+54
+00:05:50,424 --> 00:05:54,090
+It might help the model understand the difference between these things.
+
+55
+00:05:54,110 --> 00:06:06,407
+For the audio, our audio encoder is just going to take the audio and just convert it into a tensor, and then we can just take that tensor and pass it into the model in raw data format.
+
+56
+00:06:06,387 --> 00:06:11,695
+So now we have three different data modalities we need to work with.
+
+57
+00:06:12,135 --> 00:06:20,027
+We have the output of this ResNet3D model, we have the output of this BERT model, and we also have this raw audio that we need to pass into the model.
+
+58
+00:06:20,427 --> 00:06:23,532
+All of these needs to be passed into the model at the same time.
+
+59
+00:06:23,952 --> 00:06:25,695
+So how do we actually do that?
+
+60
+00:06:25,675 --> 00:06:31,001
+So what we need to do is just combine these and we do this by something called fusion.
+
+61
+00:06:31,182 --> 00:06:38,390
+So we fuse all of these data types together and then we pass that fused data into the model at one time.
+
+62
+00:06:39,031 --> 00:06:41,794
+So there is a couple of different ways of fusing data together.
+
+63
+00:06:42,275 --> 00:06:47,481
+We have something called late fusion, early fusion and then also something called intermediate fusion.
+
+64
+00:06:47,461 --> 00:06:51,327
+So it all depends on when you want to combine the data.
+
+65
+00:06:51,347 --> 00:06:53,912
+You can combine the data before passing it into the model.
+
+66
+00:06:54,292 --> 00:06:59,040
+You can also run it through some models like this and then pass that into a fusion model.
+
+67
+00:06:59,801 --> 00:07:02,345
+So there's a couple of different ways of doing that.
+
+68
+00:07:02,846 --> 00:07:06,432
+So I'll just walk you through what options we have and why we picked the one we have.
+
+69
+00:07:06,412 --> 00:07:09,115
+So what we'll do is something called late fusion.
+
+70
+00:07:09,476 --> 00:07:11,979
+So late fusion works like we see right here.
+
+71
+00:07:12,400 --> 00:07:13,922
+We have two modalities.
+
+72
+00:07:13,942 --> 00:07:16,044
+These are our two modalities, for example.
+
+73
+00:07:16,064 --> 00:07:19,209
+This could be video, then also the transcript of the video.
+
+74
+00:07:19,749 --> 00:07:25,296
+We'll run each of these into two separate models, two separate pre-trained AI models.
+
+75
+00:07:25,737 --> 00:07:30,323
+And then the result of each of these will run into another AI model, which we will train ourself.
+
+76
+00:07:30,723 --> 00:07:32,706
+We'll call this model the fusion layer.
+
+77
+00:07:32,686 --> 00:07:35,232
+And from this, we can then do some predictions.
+
+78
+00:07:35,553 --> 00:07:46,619
+So this fusion layer will then learn the relationship between modality one and modality two, along with predicting what the sentiment and the emotion is.
+
+79
+00:07:47,641 --> 00:07:50,408
+The next way of doing it is down here with early fusion.
+
+80
+00:07:50,388 --> 00:07:53,433
+So here with early fusion, you have two different modalities.
+
+81
+00:07:53,453 --> 00:07:57,699
+So this could be a video, for example, and this could be the transcript of that video.
+
+82
+00:07:58,160 --> 00:08:00,683
+We then manually extract the data from that video.
+
+83
+00:08:00,704 --> 00:08:05,010
+So we could manually find some way to extract the different colors of the video.
+
+84
+00:08:05,030 --> 00:08:10,739
+We could also manually find a way to extract the motion of the video and also do some object detection.
+
+85
+00:08:10,759 --> 00:08:14,544
+And then we could store all of these different data from the video inside of a tensor.
+
+86
+00:08:14,925 --> 00:08:19,652
+And then we could use that as the input to another model.
+
+87
+00:08:19,632 --> 00:08:31,842
+So instead of just taking all the raw data and passing that into a model, we just manually extract the data about the video that we're interested in, and then train a model on that data.
+
+88
+00:08:31,863 --> 00:08:34,890
+And we then just do the same for the text down here as well.
+
+89
+00:08:34,870 --> 00:08:38,494
+So this is called extracting features from the modalities.
+
+90
+00:08:38,514 --> 00:08:45,040
+So after extracting these features, we can then take each of these features, run them through another model, which we'll train ourselves.
+
+91
+00:08:45,581 --> 00:08:50,426
+And then we'll just concatenate this data inside of another sensor.
+
+92
+00:08:50,766 --> 00:08:58,994
+And then we can run that through a model which we'll train ourselves, which will then learn the relation between the different modalities.
+
+93
+00:08:59,014 --> 00:09:02,298
+And then that can then make a prediction of what the model should predict.
+
+94
+00:09:02,318 --> 00:09:04,540
+So the sentiment or the emotion.
+
+95
+00:09:04,520 --> 00:09:07,705
+And then the last option is called intermediate fusion.
+
+96
+00:09:08,186 --> 00:09:11,531
+In intermediate fusion, we just do a mix of both.
+
+97
+00:09:11,551 --> 00:09:17,319
+So we take both modalities and then we extract the features, so the exact things we want to extract.
+
+98
+00:09:17,339 --> 00:09:21,365
+And then we run those things through two separate AI models.
+
+99
+00:09:21,385 --> 00:09:25,752
+So this can be a pre-trained model, but it can also be a model you train yourself.
+
+100
+00:09:25,732 --> 00:09:28,295
+And then we take that and run it through a fusion layer.
+
+101
+00:09:28,676 --> 00:09:31,800
+So we run it through a model and concatenate everything.
+
+102
+00:09:32,241 --> 00:09:39,630
+And then we run that through another model, which will then learn the relationship between all of these things and then predict what the emotion and the sentiment.
+
+103
+00:09:39,971 --> 00:09:49,984
+So this requires a bit more things because you have to both extract the features, run it through a fusion layer and run independent AI processing for each of these modalities.
+
+104
+00:09:49,964 --> 00:09:56,814
+This is like a lot more steps compared to just the late fusion up here where you just use pre-trained models and then that's it.
+
+105
+00:09:57,495 --> 00:10:02,122
+So we'll use late fusion because it is simply just the simplest way of going ahead.
+
+106
+00:10:02,362 --> 00:10:08,952
+So I would just like to start simple and then if there is a reason to go even deeper and go more advanced, you can always do that.
+
+107
+00:10:08,932 --> 00:10:19,984
+And it is super simple because you can just use these pre-trained models from Bird, so Bird and then ResNet, which will just do all the hard work for you with preserving the context from the video and also the text.
+
+108
+00:10:20,004 --> 00:10:33,859
+So it's simple because feature extraction happens implicitly inside these models, whereas down here, both in early fusion and intermediate fusion, you need to extract the features yourself, such as object detection, motion vectors, et cetera.
+
+109
+00:10:33,839 --> 00:10:42,897
+Whereas this ResNet model, for example, has already done that for you because that is what it has been trained to do.
+
+110
+00:10:42,917 --> 00:10:47,305
+Also, it is more robust to missing data because feature extraction is automatic.
+
+111
+00:10:47,326 --> 00:10:50,893
+So it has been trained on a bunch of data and seen a lot of things, these two models.
+
+112
+00:10:51,273 --> 00:10:54,700
+So they will be pretty robust because it has been trained on that much data.
+
+113
+00:10:54,680 --> 00:10:57,605
+Whereas down here, you'll need to extract the features yourself.
+
+114
+00:10:57,626 --> 00:11:01,112
+So you need to train this model on the features you have extracted.
+
+115
+00:11:01,132 --> 00:11:06,061
+So what you basically do is build the understanding that these models already have.
+
+116
+00:11:06,081 --> 00:11:11,431
+And that, of course, gives you more control, but it also makes it harder for you if you do not want to do that from scratch.
+
+117
+00:11:11,772 --> 00:11:14,477
+And that is not something we are interested in right now.
+
+118
+00:11:14,457 --> 00:11:24,253
+So some of the drawbacks, just so you know it, is that we have more parameters inside the model because we both run this model right here, but we also run these two pre-trained models.
+
+119
+00:11:24,273 --> 00:11:25,916
+So we do have quite a lot of parameters.
+
+120
+00:11:25,936 --> 00:11:34,069
+We do not train all the parameters, but we do run inference for both these two machine learning models that has been pre-trained and also the one we're training ourselves.
+
+121
+00:11:34,369 --> 00:11:39,638
+So the model will be slower compared to just training everything ourselves with early fusion down here, for example.
+
+122
+00:11:39,618 --> 00:11:52,400
+And because the transcript and the video is very related because the transcript is the transcript of the video, there might also be some relationships between that data that might be missed because it is processed independently.
+
+123
+00:11:52,420 --> 00:11:57,508
+So the text will be processed independently by this model and the video will be processed independently by this model.
+
+124
+00:11:57,949 --> 00:12:03,178
+And then only the result of these models will be processed together in this fusion layer and combined.
+
+125
+00:12:03,158 --> 00:12:10,350
+So if any data is lost inside any of these models, then we'll never know because it is not processed together from the start.
+
+126
+00:12:10,370 --> 00:12:13,915
+It is processed independently and then fused together afterwards.
+
+127
+00:12:13,935 --> 00:12:15,899
+So here is an example I can give you.
+
+128
+00:12:15,919 --> 00:12:21,407
+It's like watching a movie with a friend and you both watch it separately in different rooms.
+
+129
+00:12:21,427 --> 00:12:24,012
+So this is ML Model 1 and ML Model 2.
+
+130
+00:12:24,432 --> 00:12:27,918
+You watch the two movies and then later you combine your opinions.
+
+131
+00:12:27,938 --> 00:12:29,841
+That is what you do here with the fusion layer.
+
+132
+00:12:29,821 --> 00:12:38,058
+So you actually are able to combine your opinions just fine, but you did miss out on the experience of discussing the movie together in real time.
+
+133
+00:12:38,458 --> 00:12:42,807
+So that is what you miss out on if you just combine everything from the start.
+
+134
+00:12:42,827 --> 00:12:47,256
+This is a pretty powerful approach and it is very simple too, so that is why I will go with it though.
+
+135
+00:12:47,236 --> 00:12:53,886
+Going down to early fusion, this is super efficient because you can have full control over it.
+
+136
+00:12:53,906 --> 00:12:57,731
+You only have to train your own model and not use these other pre-trained models.
+
+137
+00:12:58,392 --> 00:13:00,635
+And then also that makes it faster.
+
+138
+00:13:01,176 --> 00:13:05,903
+So one of the drawbacks is that it is more sensitive to missing data.
+
+139
+00:13:05,883 --> 00:13:10,313
+So because these models up here have been trained on that much data, they are pretty robust.
+
+140
+00:13:10,653 --> 00:13:17,168
+But if you train a model from the ground up, you'll need to train it with as much data probably as up here to make them just as robust.
+
+141
+00:13:17,188 --> 00:13:25,967
+So if you just have less good data, then you might not get very good results training everything from the ground up like you do here with early fusion.
+
+142
+00:13:25,947 --> 00:13:31,434
+Another thing is that you train the model with defining the data yourself.
+
+143
+00:13:31,454 --> 00:13:36,701
+So this feature extraction might extract the RGB values for the video specifically.
+
+144
+00:13:37,382 --> 00:13:42,689
+So the model will be trained on expecting that these RPG values will always be there.
+
+145
+00:13:42,709 --> 00:13:45,272
+So because it is not as robust as up here,
+
+146
+00:13:45,252 --> 00:13:56,535
+If you suddenly have a video where the RGB values are missing, then the model might act up and not give you very good results because it has been trained to expect exactly that from the beginning.
+
+147
+00:13:56,815 --> 00:13:59,861
+So if you do not have that, it will not be very robust.
+
+148
+00:13:59,881 --> 00:14:02,687
+So it is more sensitive to missing data.
+
+149
+00:14:02,667 --> 00:14:11,213
+And now Intermediate Fusion down here, it combines the benefits of both because you get to define which features you would like to look on specifically right here.
+
+150
+00:14:11,654 --> 00:14:16,609
+And then also you get to run it through the pre-trained models, which will preserve some of the context.
+
+151
+00:14:18,074 --> 00:14:26,608
+but more components also requires tuning because it is a bigger model and it also requires even more computations because you have even more components inside of this model.
+
+152
+00:14:26,869 --> 00:14:32,859
+So it is just a way if you wanna really be specific about how you wanna do it, then you can go with intermediate fusion for example.
+
+153
+00:14:33,339 --> 00:14:40,892
+I'll just go ahead and go with the late fusion because it is the simplest and probably also the most robust for starters in our use case.
+
+154
+00:14:40,872 --> 00:14:41,653
+Cool.
+
+155
+00:14:42,354 --> 00:14:44,537
+So this is how we're going to do a late fusion.
+
+156
+00:14:45,077 --> 00:14:50,624
+So we're going to take the video and we're going to encode it, which means we're going to turn it into raw data.
+
+157
+00:14:51,365 --> 00:14:54,749
+And we're going to do that with the ResNet 3D pre-trained model.
+
+158
+00:14:55,250 --> 00:15:01,097
+We're then also going to take the text, so the transfer of the video and run it through the bird pre-trained model.
+
+159
+00:15:01,417 --> 00:15:02,779
+This will encode the text.
+
+160
+00:15:02,759 --> 00:15:07,444
+We'll then also take the audio and run it through an audio encoder.
+
+161
+00:15:08,224 --> 00:15:15,872
+And the output for each of these encoders will then be a tensor of size batch size because we take a couple of samples at a time and not just one sample.
+
+162
+00:15:16,372 --> 00:15:17,834
+And then also 128.
+
+163
+00:15:19,435 --> 00:15:21,117
+So the tensor will look like this.
+
+164
+00:15:21,137 --> 00:15:26,402
+So the tensor will be the exact same size in the output for both the video, text and audio encoder.
+
+165
+00:15:26,762 --> 00:15:31,787
+That means we now have three tensors which we need to combine before we can pass it into our model.
+
+166
+00:15:31,767 --> 00:15:34,833
+So what we do is that we concatenate the data.
+
+167
+00:15:35,274 --> 00:15:40,123
+So we just create a tensor of batch size, and then we just append the data basically.
+
+168
+00:15:40,143 --> 00:15:43,730
+So we can say this one first, this one afterwards, and this one afterwards.
+
+169
+00:15:43,750 --> 00:15:52,307
+So we just get 128 times three, so that it will make a tensor of batch size, comma, and then three times 128.
+
+170
+00:15:52,287 --> 00:16:00,567
+We can then run that through a fusion layer, which learns the relation between each one of these modalities, so the video, the text, and the audio.
+
+171
+00:16:00,587 --> 00:16:05,859
+And then from that fusion layer, we can branch out into two more layers of neurons.
+
+172
+00:16:06,260 --> 00:16:10,330
+The first layer is the emotion classifier, and the next one is the sentiment classifier.
+
+173
+00:16:10,310 --> 00:16:17,882
+And the reason I have two of these is because we want to separate the sentiment classification from the emotion classification, because it is not the same.
+
+174
+00:16:18,242 --> 00:16:32,605
+The emotion classification should choose between seven different categories, so joy, sadness for example, whereas the sentiment classification should choose between three different categories, so negative, neutral or positive.
+
+175
+00:16:32,585 --> 00:16:41,855
+So these will be separate predictions, and this is what we call task-specific hats, because each of these predicting layers will have a separate task to do.
+
+176
+00:16:41,875 --> 00:16:44,670
+So that is how we're going to build up our model.
+

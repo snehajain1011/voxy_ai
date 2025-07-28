@@ -1,0 +1,43 @@
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
+
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Etc/UTC
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    python3-dev \
+    espeak \
+    espeak-ng \
+    libsndfile1 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+RUN python -c "import nltk; nltk.download('punkt_tab'); nltk.download('punkt'); nltk.download('cmudict');"
+
+COPY utils.py ./
+COPY models.py ./
+COPY Modules ./Modules
+COPY Utils ./Utils
+COPY text_utils.py ./
+COPY libri_inference.py ./
+COPY api.py ./
+COPY Models/LibriTTS/ Models/LibriTTS/
+
+ENV PYTHONPATH=/app
+ENV TORCH_HOME=/app/Models
+ENV CONFIG_PATH=Models/LibriTTS/config.yml
+ENV MODEL_PATH=Models/LibriTTS/epoch_2nd_00074.pth
+
+ENV AWS_REGION=us-east-1
+ENV S3_BUCKET=elevenlabs-clone
+ENV S3_PREFIX=styletts2-output
+ENV API_KEY=12345
+
+EXPOSE 8000
+
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
